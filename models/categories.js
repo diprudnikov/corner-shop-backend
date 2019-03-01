@@ -1,35 +1,35 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('categories', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     tax_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
         model: 'taxes',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     },
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-    }
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+    },
   }, {
-    tableName: 'categories'
+    tableName: 'categories',
   });
 };

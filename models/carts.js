@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('carts', {
     id: {
       type: DataTypes.INTEGER(11),
@@ -13,18 +13,18 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       references: {
         model: 'products',
-        key: 'id'
-      }
+        key: 'id',
+      },
     },
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     updatedAt: {
       type: DataTypes.DATE,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   }, {
-    tableName: 'carts'
+    tableName: 'carts',
   });
 };

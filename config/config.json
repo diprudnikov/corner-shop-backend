@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "dima",
-    "password": "password",
+    "username": "root",
+    "password": "newrootpassword",
     "database": "cornershop",
     "host": "localhost",
     "dialect": "mysql"
