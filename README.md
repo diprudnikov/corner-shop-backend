@@ -1,5 +1,5 @@
 ## Corner-shop API 
-Written on Node.js, this API is implementation of base endpoints for corner-shop project.
+(This is an old version of the API) Written on Node.js, this API is implementation of base endpoints for corner-shop project.
 
 ## How to install:
 
