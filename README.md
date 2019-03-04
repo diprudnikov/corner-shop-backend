@@ -1,6 +1,6 @@
 # corner-shop-api [![NPM version][npm-image]][npm-url]
 
-Api for the corner shop website (you can find old version on api_v1 branch).
+Api for the corner shop website.
 
 ## Running the API
 ### Development
