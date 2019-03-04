@@ -3,12 +3,14 @@
 Api for the corner shop website.
 
 ## Running the API
-First, take a look at `.env` file.
-All variables are used for creating MySQL connection so change them according to your configuration:
+First, take a look at `.env_sample` file.
+All variables are used for creating MySQL connection, so update them according to your configuration:
 * DB_HOST - host name
 * DB_NAME - database name
 * DB_USER - user name
 * DB_PWD - user password
+
+And also change the file name to `.env`.
 ### Development
 To start the application in development mode, run:
 
