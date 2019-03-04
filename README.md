@@ -1,8 +1,14 @@
-# corner-shop-api [![NPM version][npm-image]][npm-url]
+# corner-shop-api
 
 Api for the corner shop website.
 
 ## Running the API
+First, take a look at `.env` file.
+All variables are used for creating MySQL connection so change them according to your configuration:
+* DB_HOST - host name
+* DB_NAME - database name
+* DB_USER - user name
+* DB_PWD - user password
 ### Development
 To start the application in development mode, run:
 
@@ -12,8 +18,6 @@ npm run dev-server
 The developer mode will watch your changes then will transpile the TypeScript code and re-run the node application automatically.
 
 ### Production
-First, create the `prod.env` file inside the `config` folder. Make sure that file contains all your production environment variables, like the `dev.env` file.
-
 To build the API, run:
 ```bash
 npm build
@@ -22,11 +26,3 @@ Then, start the application or deploy the files in `dist` directory:
 ```
 npm start
 ```
-
-## License
-
-MIT © [Caio Souza](https://github.com/caiobsouza) & [Petrus Cyrino](https://github.com/petrusxz)
-
-[npm-image]: https://badge.fury.io/js/corner-shop-api.svg
-
-[npm-url]: https://npmjs.org/package/corner-shop-api

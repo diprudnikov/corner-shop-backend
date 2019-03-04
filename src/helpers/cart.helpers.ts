@@ -1,6 +1,6 @@
-import IProduct from '../models/product.model';
-import ICheckout from '../models/checkout.model';
-import ITax from '../models/tax.model';
+import Product from '../models/product.model';
+import Checkout from '../models/checkout.model';
+import Tax from '../models/tax.model';
 
 export default class CartHelpers {
 
@@ -9,14 +9,14 @@ export default class CartHelpers {
    * @param importTax
    * @returns checkout object with calculated products prices and taxes
    */
-  static getCheckout(products: IProduct[], importTax: ITax): ICheckout {
-    const checkout: ICheckout = {
+  static getCheckout(products: Product[], importTax: Tax): Checkout {
+    const checkout: Checkout = {
       totalSum: 0,
       totalTax: 0,
       products: [],
     };
 
-    checkout.products = products.map((product: IProduct) => {
+    checkout.products = products.map((product: Product) => {
       const checkoutProduct = CartHelpers.decorateWithTaxes(product, importTax.value);
       checkout.totalTax += checkoutProduct.taxValue;
       checkout.totalSum += checkoutProduct.price;
@@ -35,7 +35,7 @@ export default class CartHelpers {
    * @param importTax
    * @returns product object with calculated price and taxes
    */
-  static decorateWithTaxes(product: IProduct, importTax: number): IProduct {
+  static decorateWithTaxes(product: Product, importTax: number): Product {
     const roundedTax = CartHelpers.getRoundedTax(product, importTax);
     const totalPrice = product.price + roundedTax;
     return {
@@ -50,7 +50,7 @@ export default class CartHelpers {
    * @param importTax
    * @returns rounded tax for current product
    */
-  static getRoundedTax(product: IProduct, importTax: number): number {
+  static getRoundedTax(product: Product, importTax: number): number {
     const taxValue = (Number(product.taxValue) +
       (product.isImported ? importTax : 0)) / 100;
     const finalTax = product.price * taxValue;

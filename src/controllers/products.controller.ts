@@ -21,7 +21,7 @@ export class ProductsController {
     }
   }
 
-  private initRoutes() {
+  private initRoutes(): void {
     this.router.get('/', this.getAll.bind(this));
   }
 

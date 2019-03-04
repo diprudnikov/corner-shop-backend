@@ -1,6 +1,6 @@
-import ITax from './tax.model';
+import Tax from './tax.model';
 
-export default interface ICategory{
+export default interface Category{
   name: string;
-  tax: ITax;
+  tax: Tax;
 }

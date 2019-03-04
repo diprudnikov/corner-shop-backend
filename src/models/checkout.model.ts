@@ -1,7 +1,7 @@
-import IProduct from './product.model';
+import Product from './product.model';
 
-export default interface ICheckout {
+export default interface Checkout {
   totalSum: number;
   totalTax: number;
-  products: IProduct[];
+  products: Product[];
 }

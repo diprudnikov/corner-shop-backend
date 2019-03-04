@@ -1,12 +1,12 @@
 import * as chai from 'chai';
 import CartHelpers from '../src/helpers/cart.helpers';
-import IProduct from '../src/models/product.model';
-import ITax from '../src/models/tax.model';
+import Product from '../src/models/product.model';
+import Tax from '../src/models/tax.model';
 
 describe('cart.helpers', () => {
-  let products: IProduct[] = [];
-  let product: IProduct;
-  const importTax: ITax = {
+  let products: Product[] = [];
+  let product: Product;
+  const importTax: Tax = {
     name: 'import',
     value: 5,
   };
@@ -202,7 +202,7 @@ describe('cart.helpers', () => {
   });
 
   describe('#decorateWithTaxes', () => {
-    let result: IProduct;
+    let result: Product;
 
     it('should return an object', () => {
       chai.expect(CartHelpers.decorateWithTaxes(product, importTax.value)).to.be.an('object');

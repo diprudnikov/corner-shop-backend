@@ -1,4 +1,4 @@
-export default interface ITax{
+export default interface Tax{
   name: string;
   value: number;
 }

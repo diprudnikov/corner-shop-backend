@@ -1,10 +1,8 @@
-import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 
-import { HomeController } from './controllers/home.controller';
 import { ProductsController } from './controllers/products.controller';
 import { ProductRepository } from './repositories/product.repository';
 import { CartController } from './controllers/cart.controller';
@@ -17,13 +15,7 @@ class App {
   constructor() {
     require('dotenv').config();
     this.express = express();
-    this.setup();
     this.middleware();
-  }
-
-  public setup(): void {
-    this.express.set('views', path.resolve(`${__dirname}/views`));
-    this.express.set('view engine', 'pug');
   }
 
   public middleware(): void {
@@ -38,7 +30,6 @@ class App {
     const cartRepository = new CartRepository(connection);
     const taxRepository = new TaxRepository(connection);
 
-    this.express.use('/', new HomeController().router);
     this.express.use('/api/products', new ProductsController(productRepository).router);
     this.express.use('/api/cart', new CartController(cartRepository, taxRepository).router);
   }

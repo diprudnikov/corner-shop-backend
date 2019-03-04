@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { CartRepository } from '../repositories/cart.repository';
 import { TaxRepository } from '../repositories/tax.repository';
-import ICheckout from '../models/checkout.model';
-import IProduct from '../models/product.model';
-import ITax from '../models/tax.model';
+import Checkout from '../models/checkout.model';
+import Product from '../models/product.model';
+import Tax from '../models/tax.model';
 import CartHelpers from '../helpers/cart.helpers';
+
+const importTaxId = 2;
 
 export class CartController {
 
@@ -21,9 +23,9 @@ export class CartController {
 
   private async getCheckout(req: Request, res: Response, next: NextFunction) {
     try {
-      const products: IProduct[] = await this.cartRepository.findAll();
-      const importTax: ITax = await this.taxRepository.findById(2);
-      const checkout: ICheckout = CartHelpers.getCheckout(products, importTax);
+      const products: Product[] = await this.cartRepository.findAll();
+      const importTax: Tax[] = await this.taxRepository.findById(importTaxId);
+      const checkout: Checkout = CartHelpers.getCheckout(products, importTax[0]);
 
       res.status(200).json(checkout);
     } catch (error) {
@@ -58,7 +60,7 @@ export class CartController {
     }
   }
 
-  private initRoutes() {
+  private initRoutes(): void {
     this.router.get('/', this.getCart.bind(this))
         .get('/checkout', this.getCheckout.bind(this))
         .post('/', this.addToCart.bind(this))
